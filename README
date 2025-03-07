@@ -129,6 +129,38 @@ and possibly CityHashCrc128(), CityHashCrc128WithSeed(), and
 CityHashCrc256().  The functions with Crc in the name are declared in
 citycrc.h; the rest are declared in city.h.
 
+Command Line Interface
+=====================
+
+A command-line tool called 'city-cli' is also provided, which works similarly to
+md5sum or sha256sum. It can be used to calculate CityHash checksums for files or
+standard input.
+
+Usage examples:
+
+  # Calculate CityHash64 (default) for a file
+  city-cli filename.txt
+
+  # Calculate CityHash64 for standard input
+  cat filename.txt | city-cli
+
+  # Calculate CityHash32 for multiple files
+  city-cli --32 file1.txt file2.txt
+
+  # Calculate CityHash128 for a file
+  city-cli --128 filename.txt
+
+  # Calculate CityHashCrc128 for a file (if supported)
+  city-cli --128c filename.txt
+
+  # Calculate CityHashCrc256 for a file (if supported)
+  city-cli --256c filename.txt
+
+  # Show help
+  city-cli --help
+
+The output format is the hash value in hexadecimal, followed by two spaces and
+the filename (or '-' for standard input).
 
 Limitations
 ===========

@@ -12,3 +12,8 @@ cityhash_unittest_SOURCES = city-test.cc
 cityhash_unittest_LDADD = libcityhash.la
 TESTS = cityhash_unittest
 noinst_PROGRAMS = $(TESTS)
+
+# cli tool
+bin_PROGRAMS = city-cli
+city_cli_SOURCES = city-cli.cc
+city_cli_LDADD = libcityhash.la
